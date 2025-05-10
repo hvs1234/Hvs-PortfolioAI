@@ -134,10 +134,10 @@ const Nav = () => {
                         className={`navlink ${
                           view === e.title
                             ? `border-[#ff3d64] text-[#ff3d64]`
-                            : `border-transparent text-[#212121]`
+                            : `border-transparent text-[#212121] hover:text-[var(--text-primary)]`
                         } ${
                           e.class
-                        } hover:opacity-[0.6] border-b-[1px] pb-[0.2rem]`}
+                        } border-b-[1px] pb-[0.2rem]`}
                       >
                         {e.title}
                       </Link>

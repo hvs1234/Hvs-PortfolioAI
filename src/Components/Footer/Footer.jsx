@@ -53,31 +53,36 @@ const Footer = () => {
             <div className="flex flex-col gap-[1rem] max-sm:items-center max-sm:text-center max-sm:justify-center">
               <Link
                 to={"/"}
-                className="text-[2rem] text-[#414141] font-normal cursor-pointer hover:opacity-[0.8] transition-all duration-[0.2s] ease-in-out"
+                className="text-[2rem] text-[#414141] font-normal cursor-pointer hover:text-[var(--text-primary)] 
+                transition-all duration-[0.2s] ease-in-out"
               >
                 About Me
               </Link>
               <Link
                 to={"/"}
-                className="text-[2rem] text-[#414141] font-normal cursor-pointer hover:opacity-[0.8] transition-all duration-[0.2s] ease-in-out"
+                className="text-[2rem] text-[#414141] font-normal cursor-pointer hover:text-[var(--text-primary)] 
+                transition-all duration-[0.2s] ease-in-out"
               >
                 Projects
               </Link>
               <Link
                 to={"/"}
-                className="text-[2rem] text-[#414141] font-normal cursor-pointer hover:opacity-[0.8] transition-all duration-[0.2s] ease-in-out"
+                className="text-[2rem] text-[#414141] font-normal cursor-pointer hover:text-[var(--text-primary)] 
+                transition-all duration-[0.2s] ease-in-out"
               >
                 Career
               </Link>
               <Link
                 to={"/"}
-                className="text-[2rem] text-[#414141] font-normal cursor-pointer hover:opacity-[0.8] transition-all duration-[0.2s] ease-in-out"
+                className="text-[2rem] text-[#414141] font-normal cursor-pointer hover:text-[var(--text-primary)] 
+                transition-all duration-[0.2s] ease-in-out"
               >
                 Contact Me
               </Link>
               <Link
                 to={"/"}
-                className="text-[2rem] text-[#414141] font-normal cursor-pointer hover:opacity-[0.8] transition-all duration-[0.2s] ease-in-out"
+                className="text-[2rem] text-[#414141] font-normal cursor-pointer hover:text-[var(--text-primary)] 
+                transition-all duration-[0.2s] ease-in-out"
               >
                 Privacy Policy
               </Link>
