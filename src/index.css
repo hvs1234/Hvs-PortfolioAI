@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@layer utilities {
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
+}
+
+
+* {
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+}
+
+.font-lato {
+  font-family: 'Lato', sans-serif;
+}
+
+.font-noto {
+  font-family: 'Noto Serif', serif;
+  font-weight: 600;
+}
+
+.font-lobster {
+  font-family: 'Lobster', cursive;
+  font-weight: 500;
+}
+
+.font-oleo {
+  font-family: "Oleo Script", system-ui;
+  font-weight: 800;
+}
+
+.font-cinzel {
+  font-family: "Cinzel", serif;
+  font-weight: 600;
+}
+
+.clip-top {
+  clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
+}
+
+.clip-bottom {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 0);
+}
+
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.animated-content {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+.swiper-slide-active .animated-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.swiper-pagination {
+  padding: 1rem;
+}
+
+@media(max-width:1500px) {
+  html {
+    font-size: 60%;
+  }
+}
+
+@media(max-width:1024px) {
+  html {
+    font-size: 50%;
+  }
+}
