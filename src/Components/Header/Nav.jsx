@@ -1,63 +1,25 @@
-/* eslint-disable no-unused-vars */
-import { useEffect, useRef, useState } from "react";
-import NavLink from "../../Services/Data/NavData";
 import { Link } from "react-router-dom";
+import NavLink from "../../Services/Data/NavData";
 import { HiMenuAlt1 } from "react-icons/hi";
-import logo from "/logo.png";
 import { Switch } from "antd";
+import logo from "/logo.png";
+import Handlers from "../../Services/Toolkit/Handlers";
 
 const Nav = () => {
-  const [navlink] = useState(NavLink);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [view, setView] = useState("Home");
-  const sidebarRef = useRef(null);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(null);
-  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(null);
-  const dropdownRef = useRef(null);
-  const [scrolled, setScrolled] = useState(false);
-
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const handleNavigation = () => {
-    window.scrollTo(0, 0);
-    setIsMenuOpen(false);
-    setIsDropdownOpen(null);
-    setIsMobileDropdownOpen(null);
-  };
-
-  const handleSelectedView = (selectedView) => {
-    setView(selectedView);
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        sidebarRef.current &&
-        !sidebarRef.current.contains(event.target) &&
-        isMenuOpen
-      ) {
-        setIsMenuOpen(false);
-      }
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsDropdownOpen(null);
-        setIsMobileDropdownOpen(null);
-      }
-    };
-
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isMenuOpen]);
+  const {
+    isMenuOpen,
+    view,
+    isDropdownOpen,
+    isMobileDropdownOpen,
+    scrolled,
+    sidebarRef,
+    dropdownRef,
+    handleToggleMenu,
+    handleSetView,
+    handleSetDropdownOpen,
+    handleSetMobileDropdownOpen,
+    handleNavigation,
+  } = Handlers();
 
   return (
     <>
@@ -87,14 +49,14 @@ const Nav = () => {
           <div className="flex items-center justify-end gap-[4rem] max-lg:gap-[2rem]">
             <nav className="relative navbar w-[auto] hidden xl:flex">
               <ul className="flex items-start gap-[4rem] transition-all duration-[0.2s] ease-in-out">
-                {navlink.map((e) => {
+                {NavLink.map((e) => {
                   if (e.submenu) {
                     return (
                       <div
                         key={e.id}
                         className="relative cursor-pointer"
-                        onMouseEnter={() => setIsDropdownOpen(e.id)}
-                        onMouseLeave={() => setIsDropdownOpen(null)}
+                        onMouseEnter={() => handleSetDropdownOpen(e.id)}
+                        onMouseLeave={() => handleSetDropdownOpen(null)}
                       >
                         <span
                           className={`navlink border-b-[1px] pb-[0.5rem] border-none ${e.class}`}
@@ -129,15 +91,13 @@ const Nav = () => {
                         to={e.to}
                         onClick={() => {
                           handleNavigation();
-                          handleSelectedView(e.title);
+                          handleSetView(e.title);
                         }}
                         className={`navlink ${
                           view === e.title
                             ? `border-[#ff3d64] text-[#ff3d64]`
                             : `border-transparent text-[#212121] hover:text-[var(--text-primary)]`
-                        } ${
-                          e.class
-                        } border-b-[1px] pb-[0.2rem]`}
+                        } ${e.class} border-b-[1px] pb-[0.2rem]`}
                       >
                         {e.title}
                       </Link>
@@ -149,27 +109,21 @@ const Nav = () => {
             <div className="relative flex items-center justify-center gap-[2rem]">
               <a
                 href="#"
-                target="_blank"
-                className={`fa-brands fa-facebook text-[#b11f3c]  text-[2.2rem] hover:opacity-[0.5] transition-all 
-                duration-[0.2s] ease-in-out`}
-              ></a>
+                className="fa-brands fa-facebook text-[#b11f3c] text-[2.2rem] hover:opacity-[0.5]"
+              />
               <a
                 href="#"
-                target="_blank"
-                className={`fa-brands fa-linkedin text-[#b11f3c]  text-[2.2rem] hover:opacity-[0.5] transition-all 
-                duration-[0.2s] ease-in-out`}
-              ></a>
+                className="fa-brands fa-linkedin text-[#b11f3c] text-[2.2rem] hover:opacity-[0.5]"
+              />
               <a
                 href="#"
-                target="_blank"
-                className={`fa-brands fa-instagram text-[#b11f3c]  text-[2.2rem] hover:opacity-[0.5] transition-all 
-                duration-[0.2s] ease-in-out`}
-              ></a>
+                className="fa-brands fa-instagram text-[#b11f3c] text-[2.2rem] hover:opacity-[0.5]"
+              />
               <div className="xl:hidden">
                 <HiMenuAlt1
                   size={20}
-                  className={`text-[#212121] cursor-pointer`}
-                  onClick={toggleMenu}
+                  className="text-[#212121] cursor-pointer"
+                  onClick={handleToggleMenu}
                 />
               </div>
             </div>
@@ -183,8 +137,6 @@ const Nav = () => {
           </div>
         </div>
       </div>
-
-      {/* Mobile View */}
 
       <div
         ref={sidebarRef}
@@ -214,21 +166,19 @@ const Nav = () => {
             <HiMenuAlt1
               size={20}
               className="text-[#212121] cursor-pointer"
-              onClick={toggleMenu}
+              onClick={handleToggleMenu}
             />
           </div>
         </div>
-        <ul
-          className={`flex flex-col justify-center items-center text-center h-full px-[6rem] py-[0rem] gap-[3rem] text-[black]`}
-        >
-          {navlink.map((e) => {
+        <ul className="flex flex-col justify-center items-center text-center h-full px-[6rem] py-[0rem] gap-[3rem] text-[black]">
+          {NavLink.map((e) => {
             if (e.submenu) {
               return (
                 <div key={e.id} className="w-full flex flex-col items-center">
                   <span
                     className="block text-[2rem] font-semibold cursor-pointer"
                     onClick={() =>
-                      setIsMobileDropdownOpen(
+                      handleSetMobileDropdownOpen(
                         isMobileDropdownOpen === e.id ? null : e.id
                       )
                     }
