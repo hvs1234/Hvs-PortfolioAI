@@ -3,7 +3,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ViewBtn = ({ btnTitle, btnFunc, btnClass }) => {
+const ViewBtn = ({ btnTitle, btnFunc, btnClass, btnIcon }) => {
   return (
     <>
       <Link
@@ -14,7 +14,7 @@ const ViewBtn = ({ btnTitle, btnFunc, btnClass }) => {
         } rounded-xl bg-[crimson] text-[white] text-[2rem] font-normal transition-all duration-[0.2s] ease-in-out 
         cursor-pointer hover:opacity-[0.8]`}
       >
-        {btnTitle}
+        {btnTitle} &nbsp;{btnIcon}
       </Link>
     </>
   );

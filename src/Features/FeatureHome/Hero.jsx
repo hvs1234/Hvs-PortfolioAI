@@ -4,6 +4,9 @@ import pic from "/Media/pic1.jpg";
 import Typed from "typed.js";
 import { CountUp } from "countup.js";
 import PropTypes from "prop-types";
+import AnimateCounterCard from "../../Components/Card/AnimateCounterCard";
+import HeroAnimateCounterData from "../../Services/Data/HeroAnimateCounterData";
+import ViewBtn from "../../Components/Btns/ViewBtn";
 
 const Hero = () => {
   const [animate, setAnimate] = useState(false);
@@ -43,7 +46,11 @@ const Hero = () => {
     }, [id, end]);
 
     return (
-      <h3 id={id} ref={counterRef} className="counter-numbers text-[2.5rem]">
+      <h3
+        id={id}
+        ref={counterRef}
+        className="counter-numbers text-[3rem] text-[var(--text-primary)]"
+      >
         {end}+
       </h3>
     );
@@ -56,13 +63,13 @@ const Hero = () => {
   return (
     <>
       <div
-        className={`py-[6rem] px-[20rem] w-full h-full relative object-cover max-xl:px-[5rem] max-md:px-[2rem]`}
+        className={`py-[9rem] px-[20rem] w-full h-full relative object-cover max-xl:px-[5rem] max-md:px-[2rem]`}
       >
         <div
           className={`relative w-full h-full grid grid-cols-2 gap-[6rem] max-xl:gap-[2rem] max-md:gap-[4rem] justify-center max-md:grid-cols-1`}
         >
           <div
-            className={`flex flex-col gap-[1rem] w-full justify-center transform transition-all duration-[2s] max-md:items-center max-md:text-center ${
+            className={`flex flex-col gap-[1rem] w-full justify-center transform transition-all duration-[1.5s] max-md:items-center max-md:text-center ${
               animate
                 ? "translate-x-0 opacity-100"
                 : "translate-x-[-200px] opacity-0"
@@ -75,27 +82,20 @@ const Hero = () => {
             <h2>
               <span className="auto-type text-[3rem] max-md:text-[2.8rem] font-medium text-[crimson]"></span>
             </h2>
-            <div className="flex items-center gap-[12rem] mt-[2rem] w-full">
-              <div className="counter-numbers flex flex-col justify-center items-center gap-[1rem] text-[2.5rem] text-[#212121]">
-                <i className="fa-solid fa-users text-[#212121] text-[2.5rem]"></i>
-                <AnimatedCounter id="team" end={12} />
-                <p className="text-[2rem] font-normal">Team</p>
-              </div>
-              <div className="counter-numbers flex flex-col justify-center items-center gap-[1rem] text-[4rem] text-[#212121]">
-                <i className="fa-solid fa-headset text-[#212121] text-[2.5rem]"></i>
-                <AnimatedCounter id="customer" end={126} />
-                <p className="text-[2rem] font-normal">Happy Customer</p>
-              </div>
-              <div className="counter-numbers flex flex-col justify-center items-center gap-[1rem] text-[4rem] text-[#212121]">
-                <i className="fa-solid fa-box-open text-[#212121] text-[2.5rem]"></i>
-                <AnimatedCounter id="projects" end={102} />
-                <p className="text-[2rem] font-normal">Projects</p>
-              </div>
+            <p className="text-[2rem] font-normal text-[#212121]">
+              Hello everyone, I`m Harshvardhan Sharma. Currently I`m working at
+              PharynxAI Software Technologies as a Software Engineer. I am well
+              known in React, VITE, Tailwindcss and Python.
+            </p>
+            <div className="flex items-center max-md:justify-center gap-[6rem] mt-[1rem] w-full">
+              <AnimateCounterCard
+                animateCounterCardData={HeroAnimateCounterData}
+              />
             </div>
           </div>
           <div
             className={`flex items-center justify-center h-full w-[600px] max-2xl:w-[500px] max-lg:w-fit ml-auto mr-auto rounded-full object-cover border-[4px] 
-            border-[var(--bg-secondary)] px-[1rem] py-[1rem] transform transition-all duration-[3s] ${
+            border-[var(--bg-secondary)] px-[1rem] py-[1rem] transform transition-all duration-[2s] ${
               animate
                 ? "translate-y-0 opacity-100"
                 : "translate-y-[200px] opacity-0"
