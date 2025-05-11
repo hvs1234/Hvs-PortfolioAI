@@ -24,6 +24,9 @@
 
 :root {
   --text-primary: #543096;
+  --text-secondary: #b42076;
+  --bg-primary: #7c02ff;
+  --bg-secondary: #a64dff;
 }
 
 .font-lato {

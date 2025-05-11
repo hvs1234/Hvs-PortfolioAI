@@ -43,7 +43,7 @@ const Nav = () => {
             <img
               src={logo}
               alt="logo"
-              className="w-full max-sm:w-[50%] h-full object-cover"
+              className="w-full max-md:w-[50%] h-full object-cover"
             />
           </Link>
           <div className="flex items-center justify-end gap-[4rem] max-lg:gap-[2rem]">

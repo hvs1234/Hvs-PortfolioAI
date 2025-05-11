@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Nav from "./Components/Header/Nav";
 import Footer from "./Components/Footer/Footer";
 import ScrollTopBtn from "./Components/Btns/ScrollTopBtn";
+import Home from "./Pages/Home/Home";
 
 const App = () => {
   return (
@@ -11,7 +12,9 @@ const App = () => {
       <BrowserRouter>
         <Nav />
         <div className="flex flex-col w-full mt-[10rem]">
-          <Routes></Routes>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
           <ScrollTopBtn />
           <Footer />
         </div>
