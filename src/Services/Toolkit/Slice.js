@@ -6,6 +6,9 @@ const initialState = {
   isDropdownOpen: null,
   isMobileDropdownOpen: null,
   scrolled: false,
+  animate: {},
+  sectionRef: {},
+  darkMode: localStorage.getItem("theme") === "dark" ? true : false,
 };
 
 const appSlice = createSlice({
@@ -30,6 +33,22 @@ const appSlice = createSlice({
     setScrolled: (state, action) => {
       state.scrolled = action.payload;
     },
+    setAnimate: (state, action) => {
+      state.animate[action.payload] = true;
+    },
+    setAnimateRef: (state, action) => {
+      const { name, ref } = action.payload;
+      state.sectionRef[name] = ref;
+    },
+    setToggleTheme(state) {
+      state.darkMode = !state.darkMode;
+      localStorage.setItem("theme", state.darkMode ? "dark" : "light");
+      if (state.darkMode) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    },
   },
 });
 
@@ -41,6 +60,9 @@ export const {
   setDropdownOpen,
   setMobileDropdownOpen,
   setScrolled,
+  setAnimate,
+  setAnimateRef,
+  setToggleTheme,
 } = appSlice.actions;
 
 export default appSlice.reducer;

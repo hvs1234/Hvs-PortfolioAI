@@ -11,7 +11,7 @@ const App = () => {
     <>
       <BrowserRouter>
         <Nav />
-        <div className="flex flex-col w-full mt-[10rem]">
+        <div className="flex flex-col w-full mt-[6rem]">
           <Routes>
             <Route path="/" element={<Home />} />
           </Routes>

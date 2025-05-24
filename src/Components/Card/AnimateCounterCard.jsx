@@ -3,8 +3,11 @@
 import React, { useEffect, useRef } from "react";
 import { CountUp } from "countup.js";
 import PropTypes from "prop-types";
+import Handlers from "../../Services/Toolkit/Handlers";
 
 const AnimateCounterCard = ({ animateCounterCardData }) => {
+  const { darkMode } = Handlers();
+
   const AnimatedCounter = ({ id, end }) => {
     const counterRef = useRef(null);
     useEffect(() => {
@@ -22,7 +25,9 @@ const AnimateCounterCard = ({ animateCounterCardData }) => {
       <h3
         id={id}
         ref={counterRef}
-        className="counter-numbers text-[3rem] text-[var(--text-primary)]"
+        className={`counter-numbers text-[3rem] ${
+          darkMode ? "text-[cyan]" : "text-[var(--text-primary)]"
+        }`}
       >
         {end}+
       </h3>
@@ -42,7 +47,11 @@ const AnimateCounterCard = ({ animateCounterCardData }) => {
             className="counter-numbers flex flex-col justify-center items-center gap-[0rem]"
           >
             <AnimatedCounter id={ele?.name} end={ele?.counterEnd} />
-            <p className="text-[2rem] font-normal text-[#212121]">
+            <p
+              className={`text-[2rem] font-normal ${
+                darkMode ? "text-white" : "text-[#212121]"
+              }`}
+            >
               {ele?.title}
             </p>
           </div>
