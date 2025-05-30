@@ -86,6 +86,28 @@ body {
   padding: 1rem;
 }
 
+.percent-text-orange .ant-progress-text {
+  color: orange !important;
+}
+
+.percent-text-crimson .ant-progress-text {
+  color: crimson !important;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll-left {
+  animation: scrollLeft 10s linear infinite;
+}
+
+
 @media(max-width:1500px) {
   html {
     font-size: 60%;

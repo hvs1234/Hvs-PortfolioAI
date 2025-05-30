@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import LineDesign from "../../Components/Design/LineDesign";
 import ViewBtn from "../../Components/Btns/ViewBtn";
 import Handlers from "../../Services/Toolkit/Handlers";
+import { useNavigate } from "react-router-dom";
 
 const HomeAbout = () => {
   const { animate, getSectionRef, darkMode } = Handlers();
@@ -37,7 +38,7 @@ const HomeAbout = () => {
                 }`}
               ></i>
             </h2>
-            <LineDesign />
+            <LineDesign lineWidth={"100%"} />
             <p
               className={`text-[2rem] font-normal ${
                 darkMode ? "text-white" : "text-[#212121]"
@@ -49,15 +50,14 @@ const HomeAbout = () => {
               Era Hill University Dehradun Campus. If I`m talking about my
               skills and experience, so I have good knowledge in HTML, CSS,
               Javascript, React+VITE, Tailwind CSS, Git, Github, Python,
-              POSTMAN. I have 1 Year experience in React
-              Development. Currently I am working at PharynxAI Software Tech. as
-              a Software Engineer. Talking about my skills, so I love to
-              play football and PC games
+              POSTMAN. I have 1 Year experience in React Development. Currently
+              I am working at PharynxAI Software Tech. as a Software Engineer.
+              Talking about my skills, so I love to play football and PC games
             </p>
             <div
               className={`w-full flex justify-start max-md:justify-center mr-auto mt-[2rem]`}
             >
-              <ViewBtn btnTitle={"Know my projects"} />
+              <ViewBtn btnTitle={"Know my projects"} btnView={"/project"} />
             </div>
           </div>
           <div

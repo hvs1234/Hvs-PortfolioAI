@@ -4,13 +4,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Handlers from "../../Services/Toolkit/Handlers";
 
-const ViewBtn = ({ btnTitle, btnFunc, btnClass, btnIcon }) => {
+const ViewBtn = ({ btnTitle, btnView, btnFunc, btnClass, btnIcon }) => {
   const { darkMode } = Handlers();
 
   return (
     <>
       <Link
-        to={btnFunc}
+        to={btnView}
         onClick={btnFunc}
         className={`w-auto px-[2rem] ${
           btnClass === "navBtn" ? "py-[0.5rem]" : "py-[1rem]"

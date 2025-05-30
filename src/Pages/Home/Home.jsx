@@ -3,6 +3,7 @@ import React from "react";
 import Hero from "../../Features/FeatureHome/Hero";
 import HomeAbout from "../../Features/FeatureHome/HomeAbout";
 import TechUsed from "../../Features/FeatureHome/TechUsed";
+import ProgressView from "../../Features/FeatureHome/ProgressView";
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
       <Hero />
       <HomeAbout />
       <TechUsed />
+      <ProgressView />
     </>
   );
 };

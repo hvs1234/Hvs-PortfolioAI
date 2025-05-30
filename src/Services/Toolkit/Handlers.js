@@ -13,6 +13,16 @@ import {
 } from "./Slice";
 import { useCallback, useRef, useEffect, useState, createRef } from "react";
 
+const progressColorDark = {
+  "0%": "#108ee9",
+  "100%": "#87d068",
+};
+const progressColorLight = {
+  "0%": "#87d068",
+  "50%": "#ffe58f",
+  "100%": "#ffccc7",
+};
+
 const Handlers = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.app);
@@ -152,6 +162,8 @@ const Handlers = () => {
     darkMode,
     handleThemeToggle,
     getSectionRef,
+    progressColorDark,
+    progressColorLight,
   };
 };
 

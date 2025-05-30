@@ -6,26 +6,21 @@ const NavLink = [
   },
   {
     id: 2,
-    title: "About Me",
-    to: "/",
+    title: "Projects",
+    to: "/project",
   },
   {
     id: 3,
-    title: "Projects",
-    to: "/",
+    title: "Services",
+    to: "/services",
   },
   {
     id: 4,
-    title: "Services",
-    to: "/",
-  },
-  {
-    id: 5,
     title: "Career",
     to: "/",
   },
   {
-    id: 6,
+    id: 5,
     title: "Contact Me",
     to: "/",
   },

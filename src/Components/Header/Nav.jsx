@@ -106,7 +106,7 @@ const Nav = () => {
                         key={e.id}
                         to={e.to}
                         onClick={() => {
-                          handleNavigation();
+                          handleNavigation;
                           handleSetView(e.title);
                         }}
                         className={`navlink ${

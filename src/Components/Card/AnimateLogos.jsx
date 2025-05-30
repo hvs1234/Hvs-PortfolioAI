@@ -8,28 +8,24 @@ const AnimateLogos = ({ animateLogoData, sectionName }) => {
 
   return (
     <>
-      <div
-        className={`grid grid-cols-6 gap-[6rem] ml-auto mr-auto max-sm:grid-cols-4`}
-      >
-        {animateLogoData.map((ele, index) => {
-          return (
-            <img
-              key={ele?.id}
-              src={ele?.imgSrc}
-              className={`ml-auto mr-auto transition-all 
+      {animateLogoData.map((ele, index) => {
+        return (
+          <img
+            key={ele?.id}
+            src={ele?.imgSrc}
+            className={`ml-auto mr-auto transition-all 
             duration-[0.5s] ease-in-out transform ${
               animate[sectionName]
                 ? "translate-y-0 opacity-100"
                 : "translate-y-[100px] opacity-0"
             }`}
-              alt="logos"
-              width={120}
-              loading="lazy"
-              style={{ transitionDelay: `${index * 0.2}s` }}
-            />
-          );
-        })}
-      </div>
+            alt="logos"
+            width={120}
+            loading="lazy"
+            style={{ transitionDelay: `${index * 0.2}s` }}
+          />
+        );
+      })}
     </>
   );
 };
