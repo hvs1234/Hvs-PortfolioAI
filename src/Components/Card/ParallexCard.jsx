@@ -23,7 +23,8 @@ const ParallexCard = ({
     <>
       <div
         ref={getSectionRef(sectionName)}
-        className={`py-[9rem] px-[20rem] w-full h-[60vh] max-md:h-full relative object-cover bg-fixed bg-[url(${bgMedia})] bg-center bg-cover max-md:px-[5rem]`}
+        className={`py-[9rem] px-[20rem] w-full h-[60vh] max-md:h-full relative object-cover bg-fixed bg-center bg-cover max-md:px-[5rem]`}
+        style={{ backgroundImage: `url(${bgMedia})` }}
       >
         {videoView === true && (
           <video
@@ -40,7 +41,11 @@ const ParallexCard = ({
         <div
           className={`relative w-full h-full flex flex-col gap-[2rem] justify-center items-center text-center`}
         >
-          <h2 className={`text-[4rem] max-md:text-[3rem] font-cinzel text-white`}>{title}</h2>
+          <h2
+            className={`text-[4rem] max-md:text-[3rem] font-cinzel text-white`}
+          >
+            {title}
+          </h2>
           <p className={`text-[2rem] font-normal text-[#d2d2d2]`}>{desc}</p>
           <div
             className={`grid grid-cols-4 gap-[12rem] my-[2rem] max-md:gap-[6rem]`}

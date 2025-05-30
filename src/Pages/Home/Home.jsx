@@ -5,6 +5,7 @@ import HomeAbout from "../../Features/FeatureHome/HomeAbout";
 import TechUsed from "../../Features/FeatureHome/TechUsed";
 import ProgressView from "../../Features/FeatureHome/ProgressView";
 import ParallexView from "../../Features/FeatureHome/ParallexView";
+import ServiceView from "../../Features/FeatureHome/ServiceView";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <TechUsed />
       <ProgressView />
       <ParallexView />
+      <ServiceView />
     </>
   );
 };

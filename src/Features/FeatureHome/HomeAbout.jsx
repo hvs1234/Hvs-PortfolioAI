@@ -80,7 +80,7 @@ const HomeAbout = () => {
                 />
               </div>
             </div>
-          </div>
+          </div>  
           <div
             ref={getSectionRef("homeAboutImg")}
             className={`flex items-center justify-center w-auto h-auto ml-auto mr-auto rounded-xl transform transition-all duration-[2s] ${
