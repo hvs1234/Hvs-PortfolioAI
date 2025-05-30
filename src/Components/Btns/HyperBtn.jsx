@@ -4,14 +4,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Handlers from "../../Services/Toolkit/Handlers";
 
-const ViewBtn = ({ btnTitle, btnView, btnFunc, btnClass, btnIcon }) => {
+const HyperBtn = ({ btnTitle, btnView, btnClass, btnIcon }) => {
   const { darkMode } = Handlers();
 
   return (
     <>
-      <Link
-        to={btnView}
-        onClick={btnFunc}
+      <a
+        href={btnView}
+        target="_blank"
         className={`w-auto px-[2rem] ${
           btnClass === "navBtn" ? "py-[0.5rem]" : "py-[1rem]"
         } rounded-xl ${
@@ -20,9 +20,9 @@ const ViewBtn = ({ btnTitle, btnView, btnFunc, btnClass, btnIcon }) => {
         cursor-pointer hover:opacity-[0.8]`}
       >
         {btnTitle} &nbsp;{btnIcon}
-      </Link>
+      </a>
     </>
   );
-};  
+};
 
-export default ViewBtn;
+export default HyperBtn;

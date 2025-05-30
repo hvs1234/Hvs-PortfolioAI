@@ -3,7 +3,7 @@
 import React from "react";
 import Handlers from "../../Services/Toolkit/Handlers";
 
-const AnimateLogos = ({ animateLogoData, sectionName }) => {
+const AnimateLogos = ({ animateLogoData, sectionName, logowidth }) => {
   const { animate } = Handlers();
 
   return (
@@ -20,7 +20,7 @@ const AnimateLogos = ({ animateLogoData, sectionName }) => {
                 : "translate-y-[100px] opacity-0"
             }`}
             alt="logos"
-            width={120}
+            width={logowidth}
             loading="lazy"
             style={{ transitionDelay: `${index * 0.2}s` }}
           />
@@ -28,6 +28,6 @@ const AnimateLogos = ({ animateLogoData, sectionName }) => {
       })}
     </>
   );
-};
+};  
 
 export default AnimateLogos;

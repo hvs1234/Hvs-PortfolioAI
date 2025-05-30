@@ -2,11 +2,9 @@
 import React from "react";
 
 const Project = () => {
-  return (
-    <>
-      <h1 className="">projects</h1>
-    </>
-  );
+  return <>
+    
+  </>;
 };
 
 export default Project;

@@ -45,7 +45,9 @@ const Nav = () => {
         <div className="relative flex justify-center max-xl:justify-between gap-[6rem] w-full items-center">
           <Link
             to={"/"}
-            onClick={handleNavigation}
+            onClick={() => {
+              handleNavigation("/", "Home");
+            }}
             className="relative flex justify-start items-center w-auto h-auto"
           >
             {darkMode ? (
@@ -91,7 +93,9 @@ const Nav = () => {
                                 key={sub.id}
                                 to={sub.to}
                                 className="block text-[2rem] hover:text-[darkblue] text-black transition"
-                                onClick={handleNavigation}
+                                onClick={() => {
+                                  handleNavigation(sub.to, e.title);
+                                }}
                               >
                                 {sub.title}
                               </Link>
@@ -106,7 +110,7 @@ const Nav = () => {
                         key={e.id}
                         to={e.to}
                         onClick={() => {
-                          handleNavigation;
+                          handleNavigation(e.to, e.title);
                           handleSetView(e.title);
                         }}
                         className={`navlink ${
@@ -208,7 +212,9 @@ const Nav = () => {
         <div className="flex justify-between w-full items-center gap-[1rem] p-[1rem]">
           <Link
             to={"/"}
-            onClick={handleNavigation}
+            onClick={() => {
+              handleNavigation("/", "Home");
+            }}
             className="relative flex justify-start items-start w-auto h-auto"
           >
             {darkMode ? (
@@ -297,7 +303,9 @@ const Nav = () => {
                         key={sub.id}
                         to={sub.to}
                         className="block text-[1.6rem] text-black py-[0.5rem] transition"
-                        onClick={handleNavigation}
+                        onClick={() => {
+                          handleNavigation(sub.to, e.title);
+                        }}
                       >
                         <i className="fa-solid fa-circle text-[1rem] text-[grey]"></i>
                         &nbsp; {sub.title}
@@ -311,7 +319,10 @@ const Nav = () => {
                 <Link
                   key={e.id}
                   to={e.to}
-                  onClick={handleNavigation}
+                  onClick={() => {
+                    handleNavigation(e.to, e.title);
+                    handleSetView(e.title);
+                  }}
                   className={`relative navlink text-[2rem] max-md:text-[2rem] font-normal hover:scale-[1.1] transition-all duration-[0.2s] navlink hover:text-[var(--text-primary)] ${
                     darkMode ? "text-white" : "text-[#212121]"
                   }`}

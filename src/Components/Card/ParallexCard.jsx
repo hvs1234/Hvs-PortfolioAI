@@ -3,6 +3,7 @@
 import React from "react";
 import Handlers from "../../Services/Toolkit/Handlers";
 import ViewBtn from "../Btns/ViewBtn";
+import AnimateLogos from "./AnimateLogos";
 
 const ParallexCard = ({
   bgMedia,
@@ -12,13 +13,17 @@ const ParallexCard = ({
   desc,
   btnText,
   viewTo,
+  viewName,
+  animateViewData,
+  sectionName,
 }) => {
-  const { darkMode } = Handlers();
+  const { darkMode, handleNavigation, getSectionRef } = Handlers();
 
   return (
     <>
       <div
-        className={`py-[9rem] px-[20rem] w-full relative object-cover bg-fixed bg-[url(${bgMedia})] bg-center bg-cover`}
+        ref={getSectionRef(sectionName)}
+        className={`py-[9rem] px-[20rem] w-full h-[60vh] max-md:h-full relative object-cover bg-fixed bg-[url(${bgMedia})] bg-center bg-cover max-md:px-[5rem]`}
       >
         {videoView === true && (
           <video
@@ -30,27 +35,30 @@ const ParallexCard = ({
           ></video>
         )}
         <div
-          className={`absolute top-0 left-0 w-full h-full bg-[var(--bg-primary)] opacity-[0.5]`}
+          className={`absolute top-0 left-0 w-full h-full bg-black opacity-[0.7]`}
         ></div>
         <div
-          className={`relative w-full flex flex-col gap-[1rem] justify-center items-center text-center`}
+          className={`relative w-full h-full flex flex-col gap-[2rem] justify-center items-center text-center`}
         >
-          <h2
-            className={`text-[4rem] font-cinzel ${
-              darkMode ? "text-[cyan]" : "text-[var(--text-primary)]"
-            }`}
+          <h2 className={`text-[4rem] max-md:text-[3rem] font-cinzel text-white`}>{title}</h2>
+          <p className={`text-[2rem] font-normal text-[#d2d2d2]`}>{desc}</p>
+          <div
+            className={`grid grid-cols-4 gap-[12rem] my-[2rem] max-md:gap-[6rem]`}
           >
-            {title}
-          </h2>
-          <p
-            className={`text-[2rem] font-normal ${
-              darkMode ? "text-white" : "text-[#212121]"
-            }`}
-          >
-            {desc}
-          </p>
-          <div className={`w-auto flex justify-center items-center`}>
-            <ViewBtn btnTitle={btnText} btnView={viewTo} />
+            <AnimateLogos
+              animateLogoData={animateViewData}
+              sectionName={sectionName}
+              logowidth={100}
+            />
+          </div>
+          <div className={`w-auto flex justify-center items-center mt-[1rem]`}>
+            <ViewBtn
+              btnTitle={btnText}
+              btnView={viewTo}
+              btnFunc={() => {
+                handleNavigation(viewTo, viewName);
+              }}
+            />
           </div>
         </div>
       </div>

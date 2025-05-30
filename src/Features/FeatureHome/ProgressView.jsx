@@ -22,7 +22,8 @@ const ProgressView = () => {
             darkMode ? "text-[cyan]" : "text-[var(--text-primary)]"
           }`}
         >
-          Build Track &nbsp;<i className="fa-solid fa-code"/>
+          Build Track &nbsp;
+          <i className="fa-solid fa-code" />
         </h2>
         {/* <LineDesign lineWidth={"60%"}/> */}
         <div

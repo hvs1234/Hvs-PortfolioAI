@@ -31,6 +31,7 @@ const TechUsed = () => {
           <AnimateLogos
             animateLogoData={AnimateTechLogoData}
             sectionName={"techUsed"}
+            logowidth={120}
           />
         </div>
         {/* <div className="flex overflow-hidden w-full gap-[8rem]">

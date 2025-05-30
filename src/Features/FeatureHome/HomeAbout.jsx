@@ -4,9 +4,11 @@ import LineDesign from "../../Components/Design/LineDesign";
 import ViewBtn from "../../Components/Btns/ViewBtn";
 import Handlers from "../../Services/Toolkit/Handlers";
 import { useNavigate } from "react-router-dom";
+import HyperBtn from "../../Components/Btns/HyperBtn";
 
 const HomeAbout = () => {
-  const { animate, getSectionRef, darkMode } = Handlers();
+  const { animate, getSectionRef, darkMode, handleNavigation, handleSetView } =
+    Handlers();
 
   return (
     <>
@@ -55,9 +57,28 @@ const HomeAbout = () => {
               Talking about my skills, so I love to play football and PC games
             </p>
             <div
-              className={`w-full flex justify-start max-md:justify-center mr-auto mt-[2rem]`}
+              className={`flex justify-start items-center gap-[1rem] w-full mr-auto max-md:justify-center`}
             >
-              <ViewBtn btnTitle={"Know my projects"} btnView={"/project"} />
+              <div
+                className={`w-auto flex justify-start max-md:justify-center mt-[2rem]`}
+              >
+                <ViewBtn
+                  btnTitle={"Know my projects"}
+                  btnView={"/project"}
+                  btnFunc={() => {
+                    handleNavigation("/project", "Projects");
+                  }}
+                />
+              </div>
+              <div
+                className={`w-auto flex justify-start max-md:justify-center mt-[2rem]`}
+              >
+                <HyperBtn
+                  btnTitle={"CV"}
+                  btnView={"/Media/Resume.pdf"}
+                  btnIcon={<i className="fa-solid fa-user-tie text-[1.6rem]"></i>}
+                />
+              </div>
             </div>
           </div>
           <div

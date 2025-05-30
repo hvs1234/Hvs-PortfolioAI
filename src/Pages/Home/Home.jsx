@@ -4,6 +4,7 @@ import Hero from "../../Features/FeatureHome/Hero";
 import HomeAbout from "../../Features/FeatureHome/HomeAbout";
 import TechUsed from "../../Features/FeatureHome/TechUsed";
 import ProgressView from "../../Features/FeatureHome/ProgressView";
+import ParallexView from "../../Features/FeatureHome/ParallexView";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <HomeAbout />
       <TechUsed />
       <ProgressView />
+      <ParallexView />
     </>
   );
 };

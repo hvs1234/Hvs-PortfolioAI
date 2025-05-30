@@ -12,6 +12,7 @@ import {
   setToggleTheme,
 } from "./Slice";
 import { useCallback, useRef, useEffect, useState, createRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 const progressColorDark = {
   "0%": "#108ee9",
@@ -25,6 +26,7 @@ const progressColorLight = {
 
 const Handlers = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const state = useSelector((state) => state.app);
   const { darkMode, sectionRef } = state;
 
@@ -72,11 +74,23 @@ const Handlers = () => {
     [dispatch]
   );
 
-  const handleNavigation = useCallback(() => {
-    window.scrollTo(0, 0);
-    dispatch(setMenuOpen(false));
-    dispatch(setDropdownOpen(null));
-    dispatch(setMobileDropdownOpen(null));
+  const handleNavigation = useCallback(
+    (to, view) => {
+      localStorage.setItem("appView", view);
+      window.location.href = to;
+      window.scrollTo(0, 0);
+      dispatch(setMenuOpen(false));
+      dispatch(setDropdownOpen(null));
+      dispatch(setMobileDropdownOpen(null));
+    },
+    [dispatch]
+  );
+
+  useEffect(() => {
+    const savedView = localStorage.getItem("appView");
+    if (savedView) {
+      dispatch(setView(savedView));
+    }
   }, [dispatch]);
 
   const handleThemeToggle = useCallback(() => {
