@@ -167,7 +167,7 @@ const Handlers = () => {
     (service) => {
       dispatch(setSelectedService(service));
       dispatch(setShowPopup({ showPopup: true }));
-      setTimeout(() => dispatch(setShowPopup({ isVisible: true })), 40);
+      setTimeout(() => dispatch(setShowPopup({ isVisible: true })), 80);
     },
     [dispatch]
   );
@@ -177,7 +177,7 @@ const Handlers = () => {
     setTimeout(() => {
       dispatch(setShowPopup({ showPopup: false }));
       dispatch(setSelectedService(false));
-    }, 600);
+    }, 800);
   }, [dispatch]);
 
   return {

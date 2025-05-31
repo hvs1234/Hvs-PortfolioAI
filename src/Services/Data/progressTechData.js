@@ -27,7 +27,7 @@ const progressTechData = [
     id: 5,
     progressType: "circle",
     progressPercent: 91,
-    progressName: "Tawilwind CSS",
+    progressName: "Tailwind CSS",
   },
   {
     id: 6,
