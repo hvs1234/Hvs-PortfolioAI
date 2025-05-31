@@ -10,6 +10,8 @@ import {
   setAnimate,
   setAnimateRef,
   setToggleTheme,
+  setShowPopup,
+  setSelectedService,
 } from "./Slice";
 import { useCallback, useRef, useEffect, useState, createRef } from "react";
 import { useNavigate } from "react-router-dom";
@@ -28,7 +30,7 @@ const Handlers = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const state = useSelector((state) => state.app);
-  const { darkMode, sectionRef } = state;
+  const { darkMode, sectionRef, showPopup, selectedService, isVisible } = state;
 
   const sidebarRef = useRef(null);
   const dropdownRef = useRef(null);
@@ -161,6 +163,23 @@ const Handlers = () => {
     };
   }, [dispatch, state.isMenuOpen]);
 
+  const handleOpenServicePopup = useCallback(
+    (service) => {
+      dispatch(setSelectedService(service));
+      dispatch(setShowPopup({ showPopup: true }));
+      setTimeout(() => dispatch(setShowPopup({ isVisible: true })), 40);
+    },
+    [dispatch]
+  );
+
+  const handleCloseServicePopup = useCallback(() => {
+    dispatch(setShowPopup({ isVisible: false }));
+    setTimeout(() => {
+      dispatch(setShowPopup({ showPopup: false }));
+      dispatch(setSelectedService(false));
+    }, 600);
+  }, [dispatch]);
+
   return {
     ...state,
     sidebarRef,
@@ -178,6 +197,11 @@ const Handlers = () => {
     getSectionRef,
     progressColorDark,
     progressColorLight,
+    isVisible,
+    showPopup,
+    selectedService,
+    handleOpenServicePopup,
+    handleCloseServicePopup,
   };
 };
 

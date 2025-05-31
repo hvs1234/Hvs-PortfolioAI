@@ -12,7 +12,7 @@ const NavLink = [
   {
     id: 3,
     title: "Services",
-    to: "/services",
+    to: "/service",
   },
   {
     id: 4,

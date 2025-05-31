@@ -163,7 +163,7 @@ const Footer = () => {
         </div>
       </div>
       <div
-        className={`flex justify-center items-center px-[2rem] py-[1rem] bg-[crimson] w-full relative object-cover`}
+        className={`flex justify-center items-center text-center px-[2rem] py-[1rem] bg-[crimson] w-full relative object-cover`}
       >
         <p className="text-[2rem] text-[white] font-normal">
           &copy; 2025 Copyright Hvs Portfolio | All right reserved

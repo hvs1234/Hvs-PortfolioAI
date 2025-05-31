@@ -9,6 +9,9 @@ const initialState = {
   animate: {},
   sectionRef: {},
   darkMode: localStorage.getItem("theme") === "dark" ? true : false,
+  isVisible: false,
+  showPopup: false,
+  selectedService: null,
 };
 
 const appSlice = createSlice({
@@ -49,6 +52,12 @@ const appSlice = createSlice({
         document.documentElement.classList.remove("dark");
       }
     },
+    setShowPopup(state, action) {
+      return { ...state, ...action.payload };
+    },
+    setSelectedService: (state, action) => {
+      state.selectedService = action.payload;
+    },
   },
 });
 
@@ -63,6 +72,8 @@ export const {
   setAnimate,
   setAnimateRef,
   setToggleTheme,
+  setShowPopup,
+  setSelectedService,
 } = appSlice.actions;
 
 export default appSlice.reducer;
